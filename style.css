@@ -1,0 +1,53 @@
+.jumbotron {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    background-color: rgb(0, 119, 255);
+    color: white;
+    border-bottom: 10px solid black;
+}
+
+body {
+    font-family: Arial;
+    background-image: url(cloudsbackground.jpg);
+    background-size: cover;
+    float: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+form input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+form button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #0b7dda;
+}
+
+form::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+h4 {
+    margin: 20px;
+}
