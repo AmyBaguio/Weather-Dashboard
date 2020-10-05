@@ -32,9 +32,8 @@ An App should have the following;
 
  ## To view my App, please click on the link below
 
-[view my app here](www.google.com)
+[view my app here](https://amybaguio.github.io/Weather-Dashboard/)
 
-![GitHub Logo](/images/screenshot(45).png)
-Format: ![Alt Text](url)
+
 
 
