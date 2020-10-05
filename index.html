@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
     <header class="jumbotron">
         <h1 class="display-1">Weather Dashboard</h1>
     </header>
@@ -24,57 +23,59 @@
     <h4>Search for City:</h4>
     <div class="container">
         <div class="row">
-            <div class=" col-4">
-            </div>
-        </div>
-    </div>
-    <form id="city-form" style="margin: 20px;max-width:300px">
-        <input type="text" id="city-input">
+            <div class="col col-4">
+                <form id="city-form" style="margin: 20px;max-width:300px">
+                    <input type="text" id="city-input">
+            
+                    <!-- This button will trigger our AJAX call -->
+                    <button input id="find-city" type="submit" value="City Search"><i class="fa fa-search"></i></button>
+                </form>
+                <!-- // historyItems -->
+                <div class="historyItems">
 
-        <!-- This button will trigger our AJAX call -->
-        <button input id="find-city" type="submit" value="City Search"><i class="fa fa-search"></i></button>
-    </form>
-
-    <div id="historyItems">History List</div>
-
-    <div id="city-view"></div>
-    <div class="container">
-        <div class="row">
-            <div class=" col-8">
-            </div>
-        </div>
-        <div class="city"></div>
-        <div class="icon"></div>
-        <div class="wind"></div>
-        <div class="humidity"></div>
-        <div class="temp"></div>
-        <div class="tempF"></div> <br>
-
-
-
-
-        
-        <div class="five-day-container">
-         <h3>5-Day Forecast:</h3>   
-         <!-- card -->
-            <div class="card">
-
-                <div class="card-body">
-                    <h4 class="card-title">02/10/2020</h4>
-                    <img src="" alt="">
-                    <p class="card-text">
-                        Temp: 25 deg
-                    </p>
-                    <p class="card-text">
-                        Humidity: 41 %
-                    </p>
                 </div>
             </div>
+
+            <div class="col col-8">
+                <!-- results -->
+
+
+                <div id="city-view"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-8">
+                        </div>
+                    </div>
+                    <div class="city"></div>
+                    <img class="icon" src="" alt="">
+                    <div class="wind"></div>
+                    <div class="humidity"></div>
+                    <div class="temp"></div>
+                    <div class="tempF"></div> <br>
+            
+                    <div class="five-day-container">
+                        <h3>5-Day Forecast:</h3>
+                        <!-- card -->
+                        <div class="forecast-view row">
+            
+                        </div>
+            
+                    </div>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"
+                        integrity="sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg=="
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                    <script type="text/javascript"></script>
+                    <script src="weather.js"></script>
+                </div>
+            </div>
+
+
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript"></script>
-        <script src="weather.js"></script>
     </div>
+
+    
+
 </body>
 
 </html>
