@@ -10,7 +10,8 @@ body {
     font-family: Arial;
     background-image: url(cloudsbackground.jpg);
     background-size: cover;
-    float: auto;
+    
+    margin-bottom: 10px;
 }
 
 * {
@@ -22,7 +23,7 @@ form input[type=text] {
     font-size: 17px;
     border: 1px solid grey;
     float: left;
-    width: 80%;
+    width:80%;
     background: #f1f1f1;
 }
 
@@ -50,4 +51,15 @@ form::after {
 
 h4 {
     margin: 20px;
+    float: left;
+}
+
+.historyItems {
+    padding-top: 15px;
+    width: 100%;
+    float: left;
+}
+
+.currentdate {
+    font-size: larger;
 }

@@ -24,10 +24,12 @@ $(document).ready(function () {
             console.log(response);
 
             $(".city").html("<h1>" + response.name + "</h1>");
+            $(".currentdate").html(moment(response.dt_txt).format('YYYY-MM-DD'));
             $(".icon").attr("src", createIconUrl(response.weather[0].icon));
             $(".wind").text("Wind Speed: " + response.wind.speed);
             $(".humidity").text("Humidity: " + response.main.humidity);
-
+            
+           
             // Convert the temp to fahrenheit
             var tempF = (response.main.temp - 273.15) * 1.80 + 32;
 
@@ -41,9 +43,10 @@ $(document).ready(function () {
             console.log("Humidity: " + response.main.humidity);
             console.log("Temperature (F): " + tempF);
         });
-
+        
     };
-
+    
+    
     const APIKey = "88afaf5d902bd0951e5afcfd34451691";
 
     renderHistoryList();
