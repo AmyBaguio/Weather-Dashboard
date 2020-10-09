@@ -10,7 +10,6 @@ body {
     font-family: Arial;
     background-image: url(cloudsbackground.jpg);
     background-size: cover;
-    
     margin-bottom: 10px;
 }
 
@@ -46,12 +45,13 @@ form button:hover {
 form::after {
     content: "";
     clear: both;
-    display: table;
+  
 }
 
 h4 {
     margin: 20px;
     float: left;
+ 
 }
 
 .historyItems {
@@ -61,5 +61,5 @@ h4 {
 }
 
 .currentdate {
-    font-size: larger;
+    font-size: 25px;
 }

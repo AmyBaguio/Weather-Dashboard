@@ -1,6 +1,8 @@
+const APIKey = "88afaf5d902bd0951e5afcfd34451691";
+//const queryURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=88afaf5d902bd0951e5afcfd34451691";
 
 
-// To display current city search result
+
 
 
 // Search History List View
@@ -24,30 +26,39 @@ $(document).ready(function () {
             console.log(response);
 
             $(".city").html("<h1>" + response.name + "</h1>");
-            $(".currentdate").html(moment(response.dt_txt).format('YYYY-MM-DD'));
+            $(".currentdate").html(moment(response.dt_txt).format('DD-MM-YYYY'));
             $(".icon").attr("src", createIconUrl(response.weather[0].icon));
             $(".wind").text("Wind Speed: " + response.wind.speed);
             $(".humidity").text("Humidity: " + response.main.humidity);
+            $(".temp").text("Temp: " + (response.main.temp-273.15).toFixed(2)+"C");
             
            
-            // Convert the temp to fahrenheit
-            var tempF = (response.main.temp - 273.15) * 1.80 + 32;
-
-            // add temp content to html
-            $(".temp").text("Temperature (K) " + response.main.temp);
-            $(".tempF").text("Temperature (F) " + tempF.toFixed(2));
-
             // Log the data in the console as well
 
             console.log("Wind Speed: " + response.wind.speed);
             console.log("Humidity: " + response.main.humidity);
-            console.log("Temperature (F): " + tempF);
+            
         });
-        
+
     };
     
+    // Displaying current UV Index
+
+    function currentUvIndex(lat , lon) {
+        const APIKey = "88afaf5d902bd0951e5afcfd34451691";
+        const queryURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=88afaf5d902bd0951e5afcfd34451691";
+        
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+
+            //$(".uv").text("UV: " + (response.coord.lat) + (response.coord.lon)); 
+        });
+        //currentUvIndex(50.22,50.55)
+    };
     
-    const APIKey = "88afaf5d902bd0951e5afcfd34451691";
 
     renderHistoryList();
 
@@ -125,7 +136,7 @@ $(document).ready(function () {
         let cardBody = $("<div>")
         cardBody.attr("class", "card-body");
     
-        let cardTitle = $("<h4>")
+        let cardTitle = $("<h6>")
         cardTitle.attr("class", "card-title");
         cardTitle.text(date);
         cardBody.append(cardTitle);
@@ -137,13 +148,13 @@ $(document).ready(function () {
         // crete the p tags
         let cardTemp = $("<p>")
         cardTemp.attr("class", "card-text");
-        cardTemp.text('Temp: ' + temp + 'K');
+        cardTemp.text('Temp: ' + (temp-273.15).toFixed(2) + 'C');
         cardBody.append(cardTemp);
-    
+        
         
         let cardHumidity = $("<p>")
         cardHumidity.attr("class", "card-text");
-        cardHumidity.text(humidity);
+        cardHumidity.text('Humidity: ' + humidity);
         cardBody.append(cardHumidity);
     
     
@@ -179,10 +190,11 @@ $(document).ready(function () {
     
             for (let index = 0; index < dailyForecast.length; index++) {
                 const element = dailyForecast[index];
-                const card = createForeCastCard(moment(element.dt_txt).format('YYYY-MM-DD'), createIconUrl(element.weather[0].icon), element.main.temp, element.main.humidity)
+                const card = createForeCastCard(moment(element.dt_txt).format('DD-MM-YYYY'), createIconUrl(element.weather[0].icon), element.main.temp, element.main.humidity)
                 $('.forecast-view').append(card);
                
             }
         })
     };
+    
 })
