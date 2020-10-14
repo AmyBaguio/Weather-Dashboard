@@ -44,19 +44,23 @@ $(document).ready(function () {
     
     // Displaying current UV Index
 
-    function currentUvIndex(lat , lon) {
-        const APIKey = "88afaf5d902bd0951e5afcfd34451691";
+    function currentUvIndex() {
+        
+        let lat = response.city.coord.lat;
+        let lon = response.city.coord.lon;
+
         const queryURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=88afaf5d902bd0951e5afcfd34451691";
         
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
+            let uvI = response.val;
+            $(".uvIndex").text("UV Index: " + uvI);
             console.log(response);
-
-            //$(".uv").text("UV: " + (response.coord.lat) + (response.coord.lon)); 
+            
         });
-        //currentUvIndex(50.22,50.55)
+      
     };
     
 

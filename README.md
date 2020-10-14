@@ -1,11 +1,12 @@
 # Weather-Dashboard
 
-Instructions:
+### Instructions:
 
 Build an App that any traveler can use to show the current weather and the 5 Days Forecast so they can plan for their trip. 
 
+<br>
 
-## Acceptance Criteria
+### Acceptance Criteria
 
 An App should have the following;
 
@@ -23,16 +24,29 @@ An App should have the following;
 -When the User open the weather dashboard
 -User is presented with the last searched city forecast
 
-## To create this Weather App, I used the following files;
- *index.html
- *style.css
- *weather.js
- *ReadMe.md
- *Used background image(clouds)
+### Technologies used to build the App
+<ul>
+<li>HTML
+<li>CSS
+<li>Javascript
+<li>openweather.API
+<li>Moment.js
+
+</ul>
+
+<br>
+
+### Screenshot of the App
+
+<br>
+
+![Application Screenshot to be Updated](Weather-Dashboard.png)
+
+<br>
 
  ## To view my App, please click on the link below
 
-[view my app here](https://amybaguio.github.io/Weather-Dashboard/)
+[Weather Dashboard App](https://amybaguio.github.io/Weather-Dashboard/)
 
 
 
