@@ -1,5 +1,5 @@
 const APIKey = "88afaf5d902bd0951e5afcfd34451691";
-//const queryURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=88afaf5d902bd0951e5afcfd34451691";
+
 
 
 
@@ -37,6 +37,7 @@ $(document).ready(function () {
 
             console.log("Wind Speed: " + response.wind.speed);
             console.log("Humidity: " + response.main.humidity);
+            uvIndexRating(response.coord.lat, response.coord.lon)
             
         });
 
@@ -44,21 +45,42 @@ $(document).ready(function () {
     
     // Displaying current UV Index
 
-    function currentUvIndex() {
+    function uvIndexRating(lat , lon) {
         
-        let lat = response.city.coord.lat;
-        let lon = response.city.coord.lon;
-
+       
+        //const queryURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=88afaf5d902bd0951e5afcfd34451691";
         const queryURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=88afaf5d902bd0951e5afcfd34451691";
         
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            let uvI = response.val;
-            $(".uvIndex").text("UV Index: " + uvI);
-            console.log(response);
+            let uvI = (response.value)
             
+            let todayUV = $("#todayUV")
+            todayUV.text(uvI);
+            console.log(response);
+            console.log(todayUV)
+
+            todayUV.attr('class', "");
+
+             // setting colour of UV Index
+        function indexColor() {
+            if (uvI > 0 && uvI <= 2.99) {
+             todayUV.addClass("low");
+            }
+            else if (uvI > 3 && uvI <= 5.99) {
+             todayUV.addClass("moderate");
+            }
+            else if (uvI > 6 && uvI <= 7.99) {
+             todayUV.addClass("high");
+            }
+            else if (uvI > 8)
+             todayUV.addClass("very-high");
+          }
+          indexColor();
+        
+          
         });
       
     };
